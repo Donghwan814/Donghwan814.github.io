@@ -6,6 +6,7 @@ Java · Spring Boot 백엔드 개발자 개인 포트폴리오 사이트.
 ```
 portfolio/
 ├── index.html          모든 콘텐츠
+├── assets/profile.jpg  프로필 사진 (없으면 모노그램으로 자동 대체)
 ├── assets/
 │   ├── style.css       디자인 토큰 + 레이아웃
 │   └── main.js         등장 애니메이션 · 스크롤 스파이 · 카운트업
@@ -60,6 +61,13 @@ python -m http.server 4321
 - **색**: `assets/style.css` 맨 위 `:root` 변수만 바꾸면 전체가 따라온다.
 - **프로필 사진**: `.mark` 요소(모노그램 K)를 `<img>`로 교체하면 된다.
 
+## 프로필 사진
+
+`assets/profile.jpg` 에 파일을 두면 사이드바에 원형으로 표시된다.
+파일이 없으면 `onerror` 로 모노그램(K)이 대신 표시되므로 사이트는 항상 정상 동작한다.
+
 ## 배포
 
-GitHub Pages + 커스텀 도메인. 자세한 절차는 커밋 메시지와 별도 안내 참고.
+GitHub Pages. `main` 브랜치에 푸시하면 자동 반영된다.
+
+    https://donghwan814.github.io
