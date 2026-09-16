@@ -512,3 +512,17 @@ code{
   .edges{ grid-template-columns:1fr; }
   .minis{ grid-template-columns:1fr; }
 }
+
+/* 압축 카드용 저장소 링크 */
+.mini__link{
+  display:inline-flex; align-items:center; gap:5px; margin-top:11px;
+  font-family:var(--mono); font-size:11.5px; color:var(--brand); font-weight:500;
+}
+.mini__link:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* 비공개 저장소 표시 */
+.mini__priv{
+  display:inline-block; margin-left:6px; padding:2px 7px; border-radius:999px;
+  background:var(--surface-2); border:1px solid var(--line-2);
+  font-size:10px; color:var(--muted); letter-spacing:0;
+}
