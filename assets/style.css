@@ -429,3 +429,86 @@ code{
   .card__head{ flex-direction:column; gap:9px; }
   .lead-p{ font-size:16px; }
 }
+
+/* ============================================================
+   핵심 프로젝트 재구성 컴포넌트
+   문제 정의 → 판단 → 실행 → 결과 → 배운 점 구조를 위한 요소들
+   ============================================================ */
+
+/* 히어로 강점 3줄 — 개요 역할 */
+.edges{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:16px; }
+.edge{
+  padding:15px 17px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r-sm);
+}
+.edge b{ display:block; font-size:14.5px; margin-bottom:5px; }
+.edge span{ display:block; font-size:12.5px; color:var(--muted); line-height:1.6; }
+
+/* 문제 → 판단 흐름 블록 */
+.flow{
+  display:grid; gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:var(--r-sm);
+  overflow:hidden; margin-bottom:18px;
+}
+.flow > div{ background:var(--surface-2); padding:15px 17px; }
+.flow dt{
+  font-family:var(--mono); font-size:10px; letter-spacing:.12em;
+  color:var(--brand); margin-bottom:6px;
+}
+.flow dd{ margin:0; font-size:14.5px; color:var(--ink-2); line-height:1.7; }
+.flow dd b{ color:var(--ink); }
+
+/* 전후 비교 수치 */
+.kpi{
+  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  padding:17px 20px; margin-bottom:18px;
+  background:var(--brand-soft); border:1px solid var(--brand-line); border-radius:var(--r-sm);
+}
+.kpi__cell{ display:flex; flex-direction:column; }
+.kpi__v{
+  font-family:var(--mono); font-size:23px; font-weight:700; line-height:1;
+  font-variant-numeric:tabular-nums; color:var(--brand-ink);
+}
+.kpi__cell--was .kpi__v{ color:var(--muted); }
+.kpi__k{ font-size:11.5px; color:var(--muted); margin-top:7px; }
+.kpi__arrow{ color:var(--brand); font-size:19px; line-height:1; align-self:center; }
+
+/* 배운 점 · 인사이트 */
+.learn{
+  margin-top:18px; padding:16px 18px 17px 20px;
+  border-left:3px solid var(--brand); background:var(--surface-2);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+}
+.learn h5{
+  font-family:var(--mono); font-size:10.5px; font-weight:500; letter-spacing:.12em;
+  color:var(--brand); margin:0 0 8px;
+}
+.learn p{ font-size:14.5px; color:var(--ink); line-height:1.75; max-width:62ch; }
+
+/* 그 외 경험 — 압축 그리드 */
+.minis{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.mini{
+  padding:21px 21px 23px; background:var(--surface);
+  border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh);
+  transition:box-shadow .25s var(--ease), transform .25s var(--ease);
+}
+.mini:hover{ box-shadow:var(--sh-hi); transform:translateY(-2px); }
+.mini__top{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:3px; }
+.mini h4{ font-size:16.5px; }
+.mini__when{ font-family:var(--mono); font-size:10.5px; color:var(--muted); white-space:nowrap; }
+.mini__role{ font-family:var(--mono); font-size:11px; color:var(--brand); margin-bottom:11px; }
+.mini ul{ display:flex; flex-direction:column; gap:7px; }
+.mini li{
+  position:relative; padding-left:14px; font-size:13.5px;
+  color:var(--ink-2); line-height:1.68;
+}
+.mini li::before{
+  content:""; position:absolute; left:2px; top:.64em;
+  width:5px; height:5px; border-radius:1px; background:var(--brand-line);
+}
+.mini li b{ color:var(--ink); }
+
+@media (max-width:860px){
+  .edges{ grid-template-columns:1fr; }
+  .minis{ grid-template-columns:1fr; }
+}
