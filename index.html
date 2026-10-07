@@ -71,17 +71,17 @@
       서버의 <b>처음과 끝</b>을 책임집니다.
     </h2>
     <p class="hero__lead" data-reveal>
-      팀 프로젝트 6건 서버 담당, 그중 2건은 설계부터 배포까지 단독 수행.
+      팀 프로젝트 8건에서 서버를 맡았고, 그중 2건은 주담당으로 설계부터 배포·운영까지 수행.
       실사용 서비스에서 발생한 전면 장애를 원인까지 규명해 해결하고, 재발 시 원인 코드를 즉시 지목할 수 있는 감지 장치까지 남겼습니다.
     </p>
 
     <ul class="stats" data-reveal>
-      <li><b data-count="541">541</b><span>기여 커밋</span></li>
+      <li><b data-count="553">553</b><span>기여 커밋</span></li>
       <li><b data-count="77">77</b><span>REST API</span></li>
-      <li><b data-count="6">6</b><span>팀 프로젝트</span></li>
-      <li><b data-count="3">3</b><span>최다 기여 저장소</span></li>
+      <li><b data-count="8">8</b><span>팀 프로젝트</span></li>
+      <li><b data-count="6">6</b><span>최다 기여 저장소</span></li>
     </ul>
-    <p class="stats__note" data-reveal>모든 수치는 GitHub 기여 기록(2024.09 – 2026.09)에서 확인한 값입니다.</p>
+    <p class="stats__note" data-reveal>기여 커밋은 GitHub 기여 그래프(2025.10 – 2026.09), 프로젝트별 커밋은 각 저장소 작성자 기준(본인 / 전체)으로 확인한 값입니다.</p>
 
     <ul class="edges" data-reveal>
       <li class="edge">
@@ -130,7 +130,7 @@
             <div><dt>ROLE</dt><dd>백엔드 서버 전담</dd></div>
             <div><dt>PERIOD</dt><dd>2026.04 – 2026.08</dd></div>
             <div><dt>SCALE</dt><dd>도메인 8 · API 41</dd></div>
-            <div><dt>COMMIT</dt><dd>115건 중 63건</dd></div>
+            <div><dt>COMMIT</dt><dd>118건 중 64건</dd></div>
           </dl>
 
           <dl class="flow">
@@ -176,20 +176,20 @@
               <p class="card__kicker">졸업작품 · 저장소 최다 기여</p>
               <h4 class="card__title">한국어 발음 교정 학습 서비스</h4>
             </div>
-            <span class="badge">서버 단독</span>
+            <span class="badge">서버 주담당</span>
           </header>
 
           <dl class="meta">
-            <div><dt>ROLE</dt><dd>서버 단독 담당</dd></div>
+            <div><dt>ROLE</dt><dd>서버 주담당</dd></div>
             <div><dt>PERIOD</dt><dd>2026.03 – 2026.08</dd></div>
             <div><dt>SCALE</dt><dd>도메인 19 · 엔티티 15 · API 36</dd></div>
-            <div><dt>COMMIT</dt><dd>237건 중 208건</dd></div>
+            <div><dt>COMMIT</dt><dd>242건 중 208건</dd></div>
           </dl>
 
           <dl class="flow">
             <div>
               <dt>문제</dt>
-              <dd>서버를 혼자 맡았기 때문에 <b>나중에 고치기 어려운 결정</b>이 곧 프로젝트의 한계가 됐습니다. 특히 발음 분석은 외부 AI 서버에 의존했고, 소셜 로그인은 이메일로 계정을 병합하는 구조였습니다.</dd>
+              <dd>서버 대부분을 맡았기 때문에 <b>나중에 고치기 어려운 결정</b>이 곧 프로젝트의 한계가 됐습니다. 특히 발음 분석은 외부 AI 서버에 의존했고, 소셜 로그인은 이메일로 계정을 병합하는 구조였습니다.</dd>
             </div>
             <div>
               <dt>판단</dt>
@@ -198,7 +198,7 @@
           </dl>
 
           <ul class="facts">
-            <li><b>단독 설계·구현</b> — 도메인 19개, 엔티티 15개, REST API 36개, 에러코드 46종. 전 엔드포인트 Swagger 문서화 완료.</li>
+            <li><b>서버 설계·구현</b> — 도메인 19개, 엔티티 15개, REST API 36개, 에러코드 47종. 전 엔드포인트 Swagger 문서화 완료.</li>
             <li><b>확장에 열려 있는 구조</b> — 제공자가 늘 때 실제로 달라지는 것은 사용자 정보 응답 형태 하나뿐이라고 보고, 그 조각만 갈아 끼우도록 <b>인터페이스 + 추상 클래스 + 팩토리</b>로 재구성. 제공자 추가는 새 구현을 하나 만드는 일이 되어 기존 코드를 고칠 필요가 없어짐.</li>
             <li><b>계정 식별 설계 전환</b> — 이메일 병합은 제공자마다 이메일이 달라 타인 계정이 합쳐질 위험이 있다는 근거로 팀을 설득해 (제공자, 제공자별 사용자 ID) 조합으로 확정. 회원이 쌓이기 전이라 되돌릴 수 있었던 결정.</li>
             <li><b>외부 AI 장애 격리</b> — 분석 서버 통신을 전용 클라이언트로 캡슐화하고 연결 5초 / 응답 60초 타임아웃을 분리. 서버 오류와 무응답을 구분된 예외로 변환.</li>
@@ -206,11 +206,11 @@
             <li><b>인증 비용 제거</b> — 권한 정보를 JWT claim에 담아 인증 필터에서 <b>DB 조회 없이</b> 검사하도록 구현. 매 요청마다 반복되던 사용자 조회를 제거하고 관리자 API 전체를 <code>hasRole("ADMIN")</code>으로 분리.</li>
           </ul>
 
-          <ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>Spring Security</li><li>JPA</li><li>MySQL 8</li><li>AWS S3</li><li>FastAPI 연동</li><li>OpenAI</li></ul>
+          <ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>Spring Security</li><li>JPA</li><li>MySQL 8</li><li>NCP Object Storage</li><li>FastAPI 연동</li></ul>
 
           <div class="learn">
             <h5>배운 점</h5>
-            <p>혼자 만드는 서버일수록 <b>"지금 편한 구조"가 아니라 "바꿀 수 있는 구조"</b>여야 했습니다. 계정 식별 방식을 초기에 바꾸지 않았다면 사용자 데이터가 쌓인 뒤에는 되돌릴 수 없었습니다. 되돌리기 어려운 결정일수록 근거를 문서로 남기고 팀과 합의하는 습관이 생겼습니다.</p>
+            <p>혼자 책임지는 서버일수록 <b>"지금 편한 구조"가 아니라 "바꿀 수 있는 구조"</b>여야 했습니다. 계정 식별 방식을 초기에 바꾸지 않았다면 사용자 데이터가 쌓인 뒤에는 되돌릴 수 없었습니다. 되돌리기 어려운 결정일수록 근거를 문서로 남기고 팀과 합의하는 습관이 생겼습니다.</p>
           </div>
 
           <a class="card__link" href="https://github.com/Shinhan-KoreanLanguage/backend" target="_blank" rel="noopener">서버 저장소 <span aria-hidden="true">↗</span></a>
@@ -233,22 +233,30 @@
           </header>
 
           <dl class="meta">
-            <div><dt>ROLE</dt><dd>백엔드</dd></div>
+            <div><dt>ROLE</dt><dd>백엔드 · 데이터 적재 · 인증</dd></div>
             <div><dt>PERIOD</dt><dd>2026.08</dd></div>
-            <div><dt>ASSET</dt><dd>128 SKU · 953 이미지</dd></div>
-            <div><dt>TEST</dt><dd>90건 통과 · 실패 0</dd></div>
+            <div><dt>DATA</dt><dd>30 SKU · 제품 컷 231장 적재</dd></div>
+            <div><dt>COMMIT</dt><dd>125건 중 64건</dd></div>
           </dl>
 
           <dl class="flow">
             <div>
               <dt>문제</dt>
-              <dd>착용 이미지 생성에 <b>평균 9.595초</b>가 걸렸습니다. 같은 사진과 같은 상품을 다시 보려는 사용자도 매번 그 시간을 기다려야 했고, 그만큼 생성 비용도 매번 새로 발생했습니다.</dd>
+              <dd>착용 이미지를 만들려면 제품의 <b>실측 치수와 착용 방식</b>이 필요했지만, 크롤링 원본에는 치수가 상세 문장 속에 섞여 있고 착용 방식 정보는 아예 없었습니다. 이미지는 저장소에, 정보는 DB에 나눠 들어가 <b>중간에 실패하면 깨진 제품이 남는</b> 구조였습니다.</dd>
             </div>
             <div>
               <dt>판단</dt>
-              <dd>모델을 더 빠른 것으로 바꾸는 것만으로는 한계가 있다고 보고, <b>애초에 다시 만들지 않아도 되는 구조</b>를 먼저 잡았습니다. 동일 사진·SKU 조합이면 저장된 결과를 재사용하도록 설계했습니다.</dd>
+              <dd>한 번 돌리고 버리는 스크립트가 아니라 <b>몇 번을 다시 돌려도 같은 결과가 나오는 적재기</b>로 만들었습니다. 생성에 쓸 수 없는 데이터는 들이지 않고, 들인 데이터는 반쪽으로 남지 않게 했습니다.</dd>
             </div>
           </dl>
+
+          <ul class="facts">
+            <li><b>크롤링 제품 적재기</b> — SKU 단위로 제품과 제품 컷을 <b>한 트랜잭션</b>으로 저장하고, 이미 있는 SKU는 건너뛰어 재실행해도 중복 없음. 같은 클래스 안에서 호출하면 프록시를 타지 않아 <code>@Transactional</code>이 걸리지 않으므로 실행기와 적재 서비스를 분리.</li>
+            <li><b>실측 치수 파서 · 착용 방식 분류기</b> — 상세 문장에서 치수를 추출하고 모든 SKU에 착용 방식을 부여. 치수가 없으면 생성 프롬프트를 만들 수 없어 적재에서 제외. 두 모듈 모두 단위 테스트 작성.</li>
+            <li><b>동시 가입 경계</b> — 중복 검사와 INSERT 사이에 같은 이메일이 들어오면(가입 버튼 더블클릭) 유니크 제약 위반이 <b>500으로 새던 문제</b>를 발견해 평소와 같은 409로 정리.</li>
+            <li><b>토큰 오용 차단</b> — 리프레시 토큰을 헤더에 넣어도 보호된 API가 통과되던 문제를 발견, 인증 필터에서 <b>액세스 토큰 타입만 인정</b>하도록 수정.</li>
+            <li><b>API · 배포</b> — 회원가입·로그인(JWT), 신체 정보, 제품 목록·상세와 공통 페이징 응답, 사진 삭제 API. 배포용 Dockerfile · docker-compose와 README(API 목록 · 트러블슈팅) 작성.</li>
+          </ul>
 
           <div class="kpi">
             <div class="kpi__cell kpi__cell--was">
@@ -258,22 +266,15 @@
             <span class="kpi__arrow" aria-hidden="true">→</span>
             <div class="kpi__cell">
               <span class="kpi__v">0.033초</span>
-              <span class="kpi__k">저장 결과 응답 평균</span>
+              <span class="kpi__k">저장 결과 응답 평균 · 팀 성과(재사용 구조는 팀원 구현) · 발표자료 기준</span>
             </div>
           </div>
 
-          <ul class="facts">
-            <li><b>모델 선정</b> — 초기 OpenAI 구현 후 응답 시간·품질 이슈 확인. 비교 테스트를 수행하고 팀 합의로 Gemini 전환.</li>
-            <li><b>비용 산정</b> — 3상품 비교 세션당 출력비 약 $0.16 산정. 월 1K / 10K / 100K 세션 기준 원가 시나리오 제시.</li>
-            <li><b>API 구현</b> — 제품 상세 조회, 목록 페이징, 공통 페이지 응답 구조, 사진 삭제.</li>
-            <li><b>한계 명시</b> — 백엔드 테스트 90건 전부 통과. 다만 로고·절대 크기는 브랜드 검수가 필요한 항목으로 발표에서 분명히 밝힘.</li>
-          </ul>
-
-          <ul class="tags"><li>Spring Boot</li><li>AWS S3</li><li>OpenAI</li><li>Gemini 2.5 Flash Image</li></ul>
+          <ul class="tags"><li>Spring Boot</li><li>Spring Security</li><li>JWT</li><li>JPA</li><li>Docker</li></ul>
 
           <div class="learn">
             <h5>배운 점</h5>
-            <p>성능은 더 빠른 모델이 아니라 <b>다시 계산하지 않아도 되는 구조</b>에서 나왔습니다. 그리고 해커톤이라도 원가를 계산해 두니 "이 서비스가 실제로 굴러갈 수 있는가"라는 질문에 답할 수 있었습니다. 잘 되는 부분만 보여주기보다 <b>한계를 먼저 말하는 편</b>이 신뢰를 얻는다는 것도 배웠습니다.</p>
+            <p>적재처럼 "한 번 돌리면 끝"인 코드일수록 <b>중간에 실패했을 때 무엇이 남는지</b>를 먼저 따져야 했습니다. 그리고 해커톤 규모에서도 동시 요청과 토큰 오용 같은 경계는 실제 버그로 나타났습니다. 기능이 동작하는 것과 <b>경계에서 올바르게 실패하는 것</b>은 다른 문제였습니다.</p>
           </div>
 
           <a class="card__link" href="https://github.com/Dev-MAMOKEY/MTM-Backend" target="_blank" rel="noopener">서버 저장소 <span aria-hidden="true">↗</span></a>
@@ -302,7 +303,14 @@
           <dt>접근</dt>
           <dd>개별 기능이 아닌 전체 동시 실패라는 점에서 <b>공통 자원 문제로 범위 축소</b>. 확인 결과 OSIV 상태에서 <b>최대 30분짜리 SSE 요청이 커넥션을 붙잡아 기본 풀 10개가 고갈</b>된 것이 원인.</dd>
           <dt>해결</dt>
-          <dd>운영 프로필 <code>open-in-view</code> 비활성화로 장애 해소. 커넥션 장기 점유 시 스택트레이스가 남도록 <b>누수 감지 설정</b> 추가. 해당 설정이 배포 이미지에 미포함되는 구조를 파악해 <b>컨테이너 환경변수에 이중 명시</b>.</dd>
+                    <dd>운영 프로필 <code>open-in-view</code> 비활성화로 장애 해소. 20초 넘게 반납되지 않는 커넥션의 스택트레이스가 남도록 <b>누수 감지 설정</b> 추가. <code>application.yml</code>이 <code>.gitignore</code> 대상이라 이미지에 포함되지 않는 구조를 파악해 <b>컨테이너 환경변수에도 이중 명시</b>하고, 장애 날짜와 원인을 설정 옆에 남김.
+<pre class="snip"><span class="c"># docker-compose.prod.yml — 저장소 발췌</span>
+<span class="c"># OSIV가 켜지면 SSE 요청이 DB 커넥션을 30분씩 붙잡아 풀이 고갈된다 (2026-08-04 장애 원인)</span>
+SPRING_JPA_OPEN_IN_VIEW: <span class="s">"false"</span>
+
+<span class="c"># application-docker.yml — 저장소 발췌</span>
+hikari:
+  leak-detection-threshold: <span class="s">20000</span></pre></dd>
           <dt>결과</dt>
           <dd>서비스 정상화 및 <b>재발 시 원인 코드 즉시 식별 가능한 상태</b> 확보. 배포 방식 변경에도 설정이 유지되도록 안전장치 이중화.</dd>
         </dl>
@@ -317,7 +325,9 @@
           <dt>접근</dt>
           <dd>코드가 아닌 <b>실행 환경 차이</b>로 판단해 컨테이너 기동 설정 확인. 컨테이너 UTC 기동으로 애플리케이션 기본 타임존 불일치 확인.</dd>
           <dt>해결</dt>
-          <dd>Dockerfile 타임존, 애플리케이션 기본 타임존, 컨테이너 환경변수 <b>3중 고정</b>. 기저장 데이터는 <b>마이그레이션 스크립트로 정정</b>.</dd>
+                    <dd>Dockerfile 타임존, 애플리케이션 기본 타임존, 컨테이너 환경변수 <b>3중 고정</b>. 기저장 데이터는 <b>7개 테이블 정정 스크립트</b>로 처리 — 앱 중지 → <code>mysqldump</code> 백업 → 사전 조회로 UTC 여부 확인 → 단일 트랜잭션 UPDATE → 같은 행 재조회 검증 → COMMIT(이상 시 ROLLBACK) → KST 이미지 배포.</dd>
+          <dt>판단</dt>
+          <dd>배포를 먼저 하면 새 데이터(KST)와 기존 데이터(UTC)가 한 테이블에 섞이고 스크립트가 새 데이터까지 9시간 더 밀기 때문에 <b>순서를 강제</b>. 두 번 실행하면 +18시간이 되므로 스크립트 머리에 <b>재실행 금지</b>를 명시.</dd>
           <dt>결과</dt>
           <dd>출결 기록 시각 정확도 확보 및 운영 데이터 무손실 복구.</dd>
         </dl>
@@ -338,6 +348,28 @@
         </dl>
       </article>
 
+      <article class="ticket" data-reveal>
+        <div class="ticket__bar"><span class="dot"></span><span>MTM · 인증</span></div>
+        <h4>동시 가입 요청이 500으로 새던 경계 정리</h4>
+        <dl>
+          <dt>상황</dt>
+          <dd>가입 버튼 더블클릭처럼 같은 이메일 요청이 거의 동시에 오면 <b>409가 아니라 500</b>이 응답될 수 있는 구조.</dd>
+          <dt>접근</dt>
+          <dd>애플리케이션의 중복 검사와 INSERT 사이에 틈이 있어, 두 요청이 모두 검사를 통과한 뒤 <b>DB 유니크 제약</b>에서 한쪽이 실패하는 경로로 판단.</dd>
+          <dt>해결</dt>
+          <dd>최종 방어선은 DB 제약에 맡기고, 저장 시 발생하는 무결성 위반을 잡아 <b>평소와 같은 중복 이메일 에러(409)</b>로 변환.</dd>
+          <dt>결과</dt>
+          <dd>동시 요청에서도 클라이언트가 받는 응답이 일관됨. 비콘의 중복 출석 차단과 같은 원칙 — <b>검사는 애플리케이션, 보장은 DB</b>.</dd>
+        </dl>
+      </article>
+
+    </div>
+
+    <div class="note" data-reveal>
+      <b>지금 다시 본다면 — 아직 반영하지 않은 개선 과제.</b>
+      비콘 운영 프로필이 <code>ddl-auto: update</code>라 스키마 변경 이력이 남지 않아, 현재 스키마를 Flyway baseline으로 떠서 버전 관리로 옮기려 합니다.
+      월별 통계 쿼리의 <code>YEAR(s.startAt) = :year AND MONTH(s.startAt) = :month</code>는 컬럼에 함수를 씌워 인덱스 범위 검색을 막으므로,
+      <code>startAt &gt;= :from AND startAt &lt; :to</code>로 바꾸고 실행 계획으로 확인할 계획입니다.
     </div>
   </section>
 
@@ -386,8 +418,10 @@
           <h4>엄마약 — 복약 안전 서비스</h4>
           <span class="mini__when">2026.05</span>
         </div>
-        <p class="mini__role">백엔드 · 저장소 최다 기여(커밋 96건) · Java 21 · Spring Boot · PostgreSQL</p>
+        <p class="mini__role">백엔드 · 저장소 최다 기여(커밋 106건 중 81건) · Java 21 · Spring Boot · PostgreSQL</p>
         <ul>
+          <li><b>DB 기반 설계</b> — 데이터 수명에 따라 <code>ref</code> · <code>app</code> · <code>derived</code> · <code>logs</code> 4개 schema로 분리하고 Flyway <b>V001–V004</b>(extension · schema · 공통 trigger · smoke)를 직접 작성. 팀이 이 위에 V026까지 확장. 초기 checksum 오류·중복 마이그레이션도 정리</li>
+          <li><b>멱등 적재</b> — 원본 CSV 행의 SHA-256을 유니크 키로 두고 <code>ON CONFLICT DO NOTHING</code> + 1,000건 단위 배치. 같은 파일을 다시 적재해도 결과 동일</li>
           <li><b>DUR 룰 엔진</b> — 의약품 병용금기 데이터를 CSV ETL로 적재하고 엔티티·리포지토리 설계 후 안전성 판정 로직과 API 구현</li>
           <li><b>LLM 정보 추출</b> — 첨부문서를 전처리해 Gemini로 구조화 정보를 추출·영속화하고 안전성 판정에 통합, 품질 확인용 메트릭 엔드포인트 제공</li>
           <li>기상 규칙·지역 격자 테이블 설계 및 <b>Flyway 마이그레이션 버전 관리</b>, 주소를 기상청 격자 좌표로 변환</li>
@@ -401,9 +435,9 @@
           <h4>여운 — 디지털 추모 페르소나</h4>
           <span class="mini__when">2026.05</span>
         </div>
-        <p class="mini__role">백엔드 · 커밋 33건 · Java 21 · Spring Boot 4 · OAuth2 · PostgreSQL</p>
+        <p class="mini__role">백엔드 · 저장소 최다 기여(커밋 44건 중 33건) · Java 21 · Spring Boot 4 · JWT · PostgreSQL</p>
         <ul>
-          <li>고인의 사진·음성·인터뷰 답변으로 대화형 추모 페르소나를 제공하는 서비스의 백엔드. <b>인증·권한 검증, 페르소나·대화 세션 관리, FastAPI 추론 서버 연동 오케스트레이션</b>을 담당</li>
+          <li>고인의 사진·음성·인터뷰 답변으로 대화형 추모 페르소나를 제공하는 서비스의 백엔드. <b>JWT 액세스·리프레시 토큰 발급·검증 필터</b>와 공통 응답·예외 처리 구조를 초기 세팅</li>
           <li>회원 정보 조회·삭제, 페르소나 약관 동의 기능 구현</li>
           <li><b>docker-compose와 헬스체크</b>를 붙여 팀이 동일한 환경에서 띄울 수 있게 구성하고 Swagger로 API 문서화</li>
         </ul>
@@ -459,7 +493,7 @@
       </div>
       <div class="stack__row" data-reveal>
         <h4>Infra</h4>
-        <ul class="chips"><li class="chip">AWS EC2 · RDS · S3</li><li class="chip">NCP</li><li class="chip">Docker</li><li class="chip">docker-compose</li><li class="chip">GitHub Actions</li></ul>
+        <ul class="chips"><li class="chip">AWS EC2 · RDS</li><li class="chip">NCP Object Storage</li><li class="chip">Docker</li><li class="chip">docker-compose</li><li class="chip">GitHub Actions</li></ul>
       </div>
       <div class="stack__row" data-reveal>
         <h4>Tools</h4>
@@ -485,7 +519,7 @@
 
     <p class="lead-p" data-reveal>
       2024년 9월 소프트웨어융합학과로 전과해 전공 기초를 다시 쌓았고, 2년 동안 8건의 팀 프로젝트에서 서버를 맡았습니다.
-      그중 2건은 설계부터 배포·운영까지 단독으로 수행했습니다.
+      그중 2건은 서버 주담당으로 설계부터 배포·운영까지 맡았습니다.
     </p>
 
     <ol class="time">
