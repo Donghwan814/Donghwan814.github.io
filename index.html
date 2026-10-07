@@ -71,17 +71,17 @@
       서버의 <b>처음과 끝</b>을 책임집니다.
     </h2>
     <p class="hero__lead" data-reveal>
-      팀 프로젝트 6건 서버 담당, 그중 2건은 서버 주담당으로 설계부터 배포·운영까지 수행.
+      팀 프로젝트 8건에서 서버를 맡았고, 그중 2건은 주담당으로 설계부터 배포·운영까지 수행.
       실사용 서비스에서 발생한 전면 장애를 원인까지 규명해 해결하고, 재발 시 원인 코드를 즉시 지목할 수 있는 감지 장치까지 남겼습니다.
     </p>
 
     <ul class="stats" data-reveal>
-      <li><b data-count="541">541</b><span>기여 커밋</span></li>
+      <li><b data-count="553">553</b><span>기여 커밋</span></li>
       <li><b data-count="77">77</b><span>REST API</span></li>
-      <li><b data-count="6">6</b><span>팀 프로젝트</span></li>
-      <li><b data-count="3">3</b><span>최다 기여 저장소</span></li>
+      <li><b data-count="8">8</b><span>팀 프로젝트</span></li>
+      <li><b data-count="6">6</b><span>최다 기여 저장소</span></li>
     </ul>
-    <p class="stats__note" data-reveal>모든 수치는 GitHub 기여 기록(2024.09 – 2026.09)에서 확인한 값입니다.</p>
+    <p class="stats__note" data-reveal>기여 커밋은 GitHub 기여 그래프(2025.10 – 2026.09), 프로젝트별 커밋은 각 저장소 작성자 기준(본인 / 전체)으로 확인한 값입니다.</p>
 
     <ul class="edges" data-reveal>
       <li class="edge">
@@ -130,7 +130,7 @@
             <div><dt>ROLE</dt><dd>백엔드 서버 전담</dd></div>
             <div><dt>PERIOD</dt><dd>2026.04 – 2026.08</dd></div>
             <div><dt>SCALE</dt><dd>도메인 8 · API 41</dd></div>
-            <div><dt>COMMIT</dt><dd>116건 중 63건</dd></div>
+            <div><dt>COMMIT</dt><dd>118건 중 64건</dd></div>
           </dl>
 
           <dl class="flow">
@@ -198,7 +198,7 @@
           </dl>
 
           <ul class="facts">
-            <li><b>서버 설계·구현</b> — 도메인 19개, 엔티티 15개, REST API 36개, 에러코드 46종. 전 엔드포인트 Swagger 문서화 완료.</li>
+            <li><b>서버 설계·구현</b> — 도메인 19개, 엔티티 15개, REST API 36개, 에러코드 47종. 전 엔드포인트 Swagger 문서화 완료.</li>
             <li><b>확장에 열려 있는 구조</b> — 제공자가 늘 때 실제로 달라지는 것은 사용자 정보 응답 형태 하나뿐이라고 보고, 그 조각만 갈아 끼우도록 <b>인터페이스 + 추상 클래스 + 팩토리</b>로 재구성. 제공자 추가는 새 구현을 하나 만드는 일이 되어 기존 코드를 고칠 필요가 없어짐.</li>
             <li><b>계정 식별 설계 전환</b> — 이메일 병합은 제공자마다 이메일이 달라 타인 계정이 합쳐질 위험이 있다는 근거로 팀을 설득해 (제공자, 제공자별 사용자 ID) 조합으로 확정. 회원이 쌓이기 전이라 되돌릴 수 있었던 결정.</li>
             <li><b>외부 AI 장애 격리</b> — 분석 서버 통신을 전용 클라이언트로 캡슐화하고 연결 5초 / 응답 60초 타임아웃을 분리. 서버 오류와 무응답을 구분된 예외로 변환.</li>
@@ -206,7 +206,7 @@
             <li><b>인증 비용 제거</b> — 권한 정보를 JWT claim에 담아 인증 필터에서 <b>DB 조회 없이</b> 검사하도록 구현. 매 요청마다 반복되던 사용자 조회를 제거하고 관리자 API 전체를 <code>hasRole("ADMIN")</code>으로 분리.</li>
           </ul>
 
-          <ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>Spring Security</li><li>JPA</li><li>MySQL 8</li><li>AWS S3</li><li>FastAPI 연동</li><li>OpenAI</li></ul>
+          <ul class="tags"><li>Java 21</li><li>Spring Boot</li><li>Spring Security</li><li>JPA</li><li>MySQL 8</li><li>NCP Object Storage</li><li>FastAPI 연동</li></ul>
 
           <div class="learn">
             <h5>배운 점</h5>
@@ -270,7 +270,7 @@
             </div>
           </div>
 
-          <ul class="tags"><li>Spring Boot</li><li>Spring Security</li><li>JWT</li><li>JPA</li><li>AWS S3</li><li>Docker</li></ul>
+          <ul class="tags"><li>Spring Boot</li><li>Spring Security</li><li>JWT</li><li>JPA</li><li>Docker</li></ul>
 
           <div class="learn">
             <h5>배운 점</h5>
@@ -435,9 +435,9 @@ hikari:
           <h4>여운 — 디지털 추모 페르소나</h4>
           <span class="mini__when">2026.05</span>
         </div>
-        <p class="mini__role">백엔드 · 커밋 33건 · Java 21 · Spring Boot 4 · OAuth2 · PostgreSQL</p>
+        <p class="mini__role">백엔드 · 저장소 최다 기여(커밋 44건 중 33건) · Java 21 · Spring Boot 4 · JWT · PostgreSQL</p>
         <ul>
-          <li>고인의 사진·음성·인터뷰 답변으로 대화형 추모 페르소나를 제공하는 서비스의 백엔드. <b>인증·권한 검증, 페르소나·대화 세션 관리, FastAPI 추론 서버 연동 오케스트레이션</b>을 담당</li>
+          <li>고인의 사진·음성·인터뷰 답변으로 대화형 추모 페르소나를 제공하는 서비스의 백엔드. <b>JWT 액세스·리프레시 토큰 발급·검증 필터</b>와 공통 응답·예외 처리 구조를 초기 세팅</li>
           <li>회원 정보 조회·삭제, 페르소나 약관 동의 기능 구현</li>
           <li><b>docker-compose와 헬스체크</b>를 붙여 팀이 동일한 환경에서 띄울 수 있게 구성하고 Swagger로 API 문서화</li>
         </ul>
@@ -493,7 +493,7 @@ hikari:
       </div>
       <div class="stack__row" data-reveal>
         <h4>Infra</h4>
-        <ul class="chips"><li class="chip">AWS EC2 · RDS · S3</li><li class="chip">NCP</li><li class="chip">Docker</li><li class="chip">docker-compose</li><li class="chip">GitHub Actions</li></ul>
+        <ul class="chips"><li class="chip">AWS EC2 · RDS</li><li class="chip">NCP Object Storage</li><li class="chip">Docker</li><li class="chip">docker-compose</li><li class="chip">GitHub Actions</li></ul>
       </div>
       <div class="stack__row" data-reveal>
         <h4>Tools</h4>

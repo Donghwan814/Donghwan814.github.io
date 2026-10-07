@@ -48,13 +48,13 @@ python -m http.server 4321
 | 한국어 발음 교정 학습 서비스 | `Shinhan-KoreanLanguage/backend` | 208 |
 | 엄마약 (복약 안전) | `Dev-MAMOKEY/Mom-Med-Backend` | 81 |
 | MTM (AI 개인 피팅) | `Dev-MAMOKEY/MTM-Backend` | 64 |
-| 비콘 출결 관리 플랫폼 | `Dev-MAMOKEY/Beacon-Backend` | 63 |
+| 비콘 출결 관리 플랫폼 | `Dev-MAMOKEY/Beacon-Backend` | 64 |
 | 여운 (디지털 추모) | `Dev-MAMOKEY/Yeoun-Backend` | 33 |
 | 역사 고증 검색 | `mamoki-contest/history-backend` | 26 |
 | LAKO | `Dev-MAMOKEY/Laos_Backend_travel` | 7 |
 | Re:Form | `ReForm-hackathon/BackEnd-End` | 6 |
 
-합계 488 커밋.
+합계 489 커밋. 집계 기준: 각 저장소 전체 브랜치, 작성자 이메일 기준(merge 포함). 2026-10-07 재확인.
 
 ## 수정하는 법
 
