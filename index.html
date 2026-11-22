@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>김동환 — Backend Engineer</title>
-<meta name="description" content="설계부터 배포, 운영까지. Java · Spring Boot · Python 백엔드 개발자 김동환. REST API 77개 설계, 실사용 서비스 전면 장애 규명·해결 및 재발 방지.">
+<meta name="description" content="Java · Spring Boot 백엔드 개발자 김동환. 2026 멋사 1호선톤 최우수상(실시간 WebSocket 서버), 실사용 서비스 전면 장애 규명·해결, 기능마다 테스트로 고정하는 서버.">
 <meta name="author" content="김동환">
 <meta property="og:type" content="website">
 <meta property="og:title" content="김동환 — Backend Engineer">
-<meta property="og:description" content="설계부터 배포, 운영까지 책임지는 백엔드 개발자.">
+<meta property="og:description" content="끊기고 몰려도 데이터가 맞는 서버를 만드는 백엔드 개발자. 1호선톤 최우수상.">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://donghwan814.github.io/">
 <meta property="og:image" content="https://donghwan814.github.io/assets/og.png">
@@ -65,23 +65,23 @@
   <!-- HERO — 지원자 소개 + 전체 개요 -->
   <header class="hero">
     <div class="hero__glow" aria-hidden="true"></div>
-    <p class="eyebrow" data-reveal>Java · Spring Boot · Python · AWS</p>
+    <p class="eyebrow" data-reveal>Java 21 · Spring Boot · JPA · MySQL/PostgreSQL · AWS</p>
     <h2 class="hero__title" data-reveal>
-      설계부터 배포, 운영까지<br>
-      서버의 <b>처음과 끝</b>을 책임집니다.
+      끊기고 몰려도<br>
+      <b>데이터가 맞는 서버</b>를 만듭니다.
     </h2>
     <p class="hero__lead" data-reveal>
-      팀 프로젝트 6건 서버 담당, 그중 2건은 설계부터 배포까지 단독 수행.
-      실사용 서비스에서 발생한 전면 장애를 원인까지 규명해 해결하고, 재발 시 원인 코드를 즉시 지목할 수 있는 감지 장치까지 남겼습니다.
+      실시간 WebSocket 중계 서버로 2026 멋사 1호선톤 <b>최우수상</b>. 실사용 출결 서비스의 전면 장애(커넥션 풀 고갈)와
+      운영 환경 시각 오차를 원인까지 내려가 해결했습니다. 기능마다 테스트를 붙이고, 숫자는 직접 측정한 값만 씁니다.
     </p>
 
     <ul class="stats" data-reveal>
-      <li><b data-count="541">541</b><span>기여 커밋</span></li>
-      <li><b data-count="77">77</b><span>REST API</span></li>
-      <li><b data-count="6">6</b><span>팀 프로젝트</span></li>
-      <li><b data-count="3">3</b><span>최다 기여 저장소</span></li>
+      <li><b>최우수상</b><span>2026 1호선톤</span></li>
+      <li><b data-count="245">245</b><span>FITMATE 테스트 통과</span></li>
+      <li><b>29ms</b><span>20명 동시 중계 p95</span></li>
+      <li><b>0.033초</b><span>재사용 응답 (기존 9.6초)</span></li>
     </ul>
-    <p class="stats__note" data-reveal>모든 수치는 GitHub 기여 기록(2024.09 – 2026.09)에서 확인한 값입니다.</p>
+    <p class="stats__note" data-reveal>수치는 각 저장소의 PR 본문에 남긴 측정·테스트 기록에서 옮긴 값입니다.</p>
 
     <ul class="edges" data-reveal>
       <li class="edge">
@@ -104,10 +104,70 @@
     <div class="sec__head" data-reveal>
       <em class="sec__no">01</em>
       <h3 class="sec__title">Work</h3>
-      <p class="sec__sub">가장 오래, 가장 깊이 붙잡았던 3건 — 문제 · 판단 · 결과 · 배운 점</p>
+      <p class="sec__sub">가장 깊이 붙잡았던 4건 — 문제 · 판단 · 결과 · 배운 점</p>
     </div>
 
     <div class="cards">
+
+      <!-- FITMATE — 1호선톤 최우수상 -->
+      <article class="card" data-reveal>
+        <div class="card__body">
+          <header class="card__head">
+            <div>
+              <p class="card__kicker">2026 멋쟁이사자처럼 1호선톤 · 8개 대학 연합 · 20팀</p>
+              <h4 class="card__title">FITMATE — 친구와 같은 방에서 하는 AI 홈트레이닝</h4>
+            </div>
+            <span class="badge badge--ok">최우수상</span>
+          </header>
+
+          <dl class="meta">
+            <div><dt>ROLE</dt><dd>실시간 서버 전담</dd></div>
+            <div><dt>PERIOD</dt><dd>2026.11 (수상 11.15)</dd></div>
+            <div><dt>COMMIT</dt><dd>127건 중 61건 · PR 10건</dd></div>
+            <div><dt>TEST</dt><dd>245건 통과</dd></div>
+          </dl>
+
+          <dl class="flow">
+            <div>
+              <dt>문제</dt>
+              <dd>다른 PC의 친구와 같은 3D 운동방에서 <b>초당 15번 들어오는 동작 정보</b>를 실시간으로 주고받아야 했습니다. 와이파이가 잠깐 끊겨도 내 운동 기록이 날아가거나, 친구의 연결 문제가 내 진행에 영향을 주면 안 됐습니다.</dd>
+            </div>
+            <div>
+              <dt>판단</dt>
+              <dd>실시간 서버는 <b>내용을 해석하지 않고 중계만</b> 하고, 운동 기록(DB)은 REST 쪽에서만 쓰도록 경계를 나눴습니다. 끊김은 곧바로 퇴장이 아니라 <b>"불안정" 상태로 30초 자리 유지</b>로 정의했고, 메시지 형식은 문서로 먼저 합의한 뒤 바꾸지 않았습니다.</dd>
+            </div>
+          </dl>
+
+          <div class="kpi">
+            <div class="kpi__cell">
+              <span class="kpi__v">20명 · 29ms</span>
+              <span class="kpi__k">15Hz 동시 중계 p95 · 손실 0%</span>
+            </div>
+            <span class="kpi__arrow" aria-hidden="true">/</span>
+            <div class="kpi__cell kpi__cell--was">
+              <span class="kpi__v">30명 · 86.5%</span>
+              <span class="kpi__k">수신율 하락 지점까지 측정·공유</span>
+            </div>
+          </div>
+
+          <ul class="facts">
+            <li><b>WebSocket 방 레지스트리</b> — 입퇴장·상태 공유·하트비트. JOIN 이후엔 클라이언트가 보낸 식별값을 무시하고 연결에 묶인 참가자로만 처리해 <b>사칭 차단</b>. 토큰은 URL이 아닌 첫 메시지로 받아 프록시 로그 노출 방지.</li>
+            <li><b>과부하 방어</b> — 메시지 2KB·참가자당 초당 15개 상한, 응원 연타 1초 쿨다운. 넘는 메시지는 연결을 끊지 않고 버림. 값은 전부 설정으로 분리.</li>
+            <li><b>재접속 일관성</b> — 끊기기 전 상태만 복원하고, 밀려난 이전 연결의 늦은 메시지는 전달하지 않음. "친구 상태가 내 진행을 바꾸지 않는다"는 규칙을 <b>테스트 10건으로 고정</b>.</li>
+            <li><b>측정으로 한계 공개</b> — Node 부하 스크립트로 인원별 지연·손실 실측. 동작 정보가 인원 제곱으로 늘어나는 구조임을 수치로 보여주고 30명 이상은 빈도 축소가 필요하다고 팀에 제안.</li>
+            <li><b>운영 API</b> — 시연 운영 화면용 API와 운영 키 인증(키 미설정 시 전체 차단, 일정 시간 비교). 동시 입장·시작 요청은 잠금으로 직렬화.</li>
+          </ul>
+
+          <ul class="tags"><li>Java 21</li><li>Spring Boot 4</li><li>Spring WebSocket</li><li>JPA</li><li>PostgreSQL</li><li>JUnit 5</li></ul>
+
+          <div class="learn">
+            <h5>배운 점</h5>
+            <p>실시간 기능은 "잘 될 때"보다 <b>끊기고 몰릴 때 무엇을 보장하는지</b>를 먼저 정해야 했습니다. 상태를 정의하고 그 규칙을 테스트로 묶어 두니, 프론트·3D 팀이 연동 중에 바꿔 달라고 할 때도 무엇이 깨지는지 바로 답할 수 있었습니다.</p>
+          </div>
+
+          <a class="card__link" href="https://github.com/20thTeam/fitmate-be" target="_blank" rel="noopener">서버 저장소 <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
 
       <!-- 비콘 출결 -->
       <article class="card" data-reveal>
@@ -353,6 +413,20 @@
 
       <article class="mini" data-reveal>
         <div class="mini__top">
+          <h4>진상 멈춰 — 로컬 LLM 민원 응대 훈련 서버</h4>
+          <span class="mini__when">2026.09 – 10</span>
+        </div>
+        <p class="mini__role">백엔드 1인 (커밋 64건 · PR 9건) · Java 21 · Spring Boot 4 · MySQL 8.4 · Flyway</p>
+        <ul>
+          <li>음성 전사(faster-whisper)·LLM 추론(llama.cpp)·TTS 외부 서비스를 묶는 <b>오케스트레이션 서버</b> 단독 설계. 서비스마다 연결·헬스·처리 <b>타임아웃 분리</b>, 미기동 시 503으로 세션 시작 차단</li>
+          <li>진행 중 세션은 <b>유니크 제약으로 하나만</b> 허용, 10분 방치 세션은 다음 시작 때 정리. 오디오는 저장하지 않고 메모리로만 전달</li>
+          <li>LLM 출력은 금칙·형식 검사 → 1회 재시도 → 실패 시 세션 종료. 채점은 temperature 0·고정 시드·JSON 스키마로 <b>재현성 확보</b>, 실패 턴은 0점이 아니라 NULL로 기록</li>
+          <li>스키마·시드를 Flyway로 관리하고 테스트는 같은 마이그레이션을 H2에서 실행 — <b>테스트 124건</b>. 용어집·ADR로 결정 근거 기록</li>
+        </ul>
+      </article>
+
+      <article class="mini" data-reveal>
+        <div class="mini__top">
           <h4>역사 고증 검색 — 시각자료 파이프라인</h4>
           <span class="mini__when">2026.06</span>
         </div>
@@ -490,6 +564,14 @@
 
     <ol class="time">
       <li data-reveal class="is-now">
+        <span class="time__when">2026.09 – 2026.11</span>
+        <div class="time__body">
+          <h4>실시간 서버 · 외부 서비스 연동 서버 구축</h4>
+          <p>8개 대학 연합 1호선톤에서 운동방 WebSocket 중계 계층을 맡아 <b>최우수상</b>을 받았고,
+             음성·LLM 서비스를 묶는 훈련 서버를 1인으로 설계부터 테스트까지 완성했습니다.</p>
+        </div>
+      </li>
+      <li data-reveal>
         <span class="time__when">2026.03 – 2026.08</span>
         <div class="time__body">
           <h4>서버 전담 2건 동시 수행 · 동아리 백엔드 운영진</h4>
@@ -527,6 +609,7 @@
       <div class="panel" data-reveal>
         <h4>수상 · 선발</h4>
         <ul class="list">
+          <li><span class="mono">2026.11</span> 2026 멋쟁이사자처럼 1호선톤 <b>최우수상</b> <em>(FITMATE · 실시간 서버)</em></li>
           <li><span class="mono">2026.08</span> 멋사 중앙 해커톤 SJF 트랙 — <b>82팀 중 상위 15팀</b></li>
           <li><span class="mono">2026.03</span> 멋쟁이사자처럼 멋사대학 14기 백엔드 트랙 <b>선발</b></li>
           <li><span class="mono">2025.10</span> SW중심대학 SUMTECH 해커톤 <b>장려상</b> <em>(Re:Form · 팀장)</em></li>
