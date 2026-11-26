@@ -568,3 +568,23 @@ code{
   display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px;
 }
 .hero__role span{ font-size:13px; font-weight:500; color:var(--muted); font-family:var(--mono); }
+
+/* ── 01 Backend Core : 역량별 사례 ── */
+.core{ display:flex; flex-direction:column; gap:14px; }
+.core__row{
+  display:grid; grid-template-columns:170px 1fr; gap:18px;
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  padding:20px clamp(18px,2.4vw,26px); box-shadow:var(--sh);
+}
+.core__k{ font-size:16px; line-height:1.35; }
+.core__k em{
+  display:block; margin-bottom:4px; font-style:normal; font-family:var(--mono);
+  font-size:10.5px; font-weight:500; letter-spacing:.08em; color:var(--brand);
+}
+.core__cases{ display:flex; flex-direction:column; gap:10px; }
+.core__cases li{ font-size:14.5px; color:var(--ink-2); line-height:1.65; }
+.core__cases b{ color:var(--ink); }
+.core__cases .ev{ margin:0 0 0 6px; font-size:11px; }
+@media (max-width:720px){
+  .core__row{ grid-template-columns:1fr; gap:10px; }
+}

@@ -44,13 +44,14 @@
   </div>
 
   <nav class="nav" aria-label="섹션 이동">
-    <a href="#work" class="nav__item" data-nav><em>01</em><span>Work</span></a>
-    <a href="#evidence" class="nav__item" data-nav><em>02</em><span>Contribution</span></a>
-    <a href="#solve" class="nav__item" data-nav><em>03</em><span>Problem Solving</span></a>
-    <a href="#more" class="nav__item" data-nav><em>04</em><span>More</span></a>
-    <a href="#stack" class="nav__item" data-nav><em>05</em><span>Stack</span></a>
-    <a href="#about" class="nav__item" data-nav><em>06</em><span>About</span></a>
-    <a href="#contact" class="nav__item" data-nav><em>07</em><span>Contact</span></a>
+    <a href="#core" class="nav__item" data-nav><em>01</em><span>Backend Core</span></a>
+    <a href="#work" class="nav__item" data-nav><em>02</em><span>Work</span></a>
+    <a href="#evidence" class="nav__item" data-nav><em>03</em><span>Contribution</span></a>
+    <a href="#solve" class="nav__item" data-nav><em>04</em><span>Problem Solving</span></a>
+    <a href="#more" class="nav__item" data-nav><em>05</em><span>More</span></a>
+    <a href="#stack" class="nav__item" data-nav><em>06</em><span>Stack</span></a>
+    <a href="#about" class="nav__item" data-nav><em>07</em><span>About</span></a>
+    <a href="#contact" class="nav__item" data-nav><em>08</em><span>Contact</span></a>
   </nav>
 
   <div class="side__foot">
@@ -103,10 +104,89 @@
     </ul>
   </header>
 
-  <!-- 01 WORK — 핵심 프로젝트 -->
-  <section id="work" class="sec" data-section>
+  <!-- 01 CORE — 백엔드 역량별 사례 -->
+  <section id="core" class="sec" data-section>
     <div class="sec__head" data-reveal>
       <em class="sec__no">01</em>
+      <h3 class="sec__title">Backend Core</h3>
+      <p class="sec__sub">Java 백엔드 역량별로 실제 구현한 사례 — 어떤 문제를 어떤 구조로 풀었는지</p>
+    </div>
+
+    <div class="core">
+
+      <article class="core__row" data-reveal>
+        <h4 class="core__k"><em>API</em>API 설계</h4>
+        <ul class="core__cases">
+          <li><b>팀 API 형식이 사람마다 달라지는 문제</b> → 공통 응답(<code>RsData</code>)·<code>ErrorCode</code>·전역 예외 처리를 프로젝트 초기에 먼저 만들고 Swagger로 문서화. 졸업작품 에러코드 47종 중 38종, 비콘 69줄 중 62줄 작성
+            <a class="ev" href="#capstone">졸업작품</a><a class="ev" href="#beacon">비콘</a></li>
+          <li><b>연결이 계속 유지되는 WebSocket</b> → 토큰은 URL이 아닌 첫 <code>JOIN</code> 메시지로, 끊김은 퇴장이 아닌 "불안정" 상태로, 재접속은 이전 상태 복원으로 메시지 규약을 먼저 정의
+            <a class="ev" href="#fitmate">FITMATE</a></li>
+          <li><b>소셜 로그인 제공자가 늘어날 때마다 코드가 퍼지는 문제</b> → 인터페이스 + 추상 클래스 + 팩토리로 제공자 추가를 새 구현 하나로 한정
+            <a class="ev" href="#capstone">졸업작품</a></li>
+        </ul>
+      </article>
+
+      <article class="core__row" data-reveal>
+        <h4 class="core__k"><em>DB</em>데이터베이스 연동</h4>
+        <ul class="core__cases">
+          <li><b>배포 직후 전 API 500</b> → OSIV + 30분짜리 SSE 요청이 커넥션 풀 10개를 고갈시킨 것을 규명, <code>open-in-view: false</code>와 <code>leak-detection-threshold</code>로 해결·재발 감지
+            <a class="ev" href="#solve-pool">비콘</a></li>
+          <li><b>목록이 길수록 늘어나는 쿼리(N+1)</b> → IN 일괄 조회 + Map 매핑으로 목록 크기와 무관하게 쿼리 수 고정
+            <a class="ev" href="#capstone">졸업작품</a></li>
+          <li><b>재적재가 사용자 데이터에 영향을 주는 구조</b> → 스키마를 ref·app·derived·logs로 분리하고 Flyway V001–V004로 변경 이력 관리
+            <a class="ev" href="#more-mommed">엄마약</a></li>
+          <li><b>동시 요청에서 생기는 중복</b> → 애플리케이션 검사 대신 DB 유니크 제약((member_id, club_id), 진행 중 세션 1개)으로 차단
+            <a class="ev" href="#beacon">비콘</a><a class="ev" href="#jinsang">진상 멈춰</a></li>
+        </ul>
+      </article>
+
+      <article class="core__row" data-reveal>
+        <h4 class="core__k"><em>AUTH</em>인증 처리</h4>
+        <ul class="core__cases">
+          <li><b>액세스 토큰이 만료되면 재발급까지 실패</b> → <code>permitAll</code>과 JWT 필터 <code>shouldNotFilter</code> 양쪽에서 재발급 경로를 열고, 리프레시 토큰 오류 코드를 분리해 재발급·재로그인을 응답만으로 구분
+            <a class="ev" href="#solve-refresh">비콘</a></li>
+          <li><b>리프레시 토큰으로 보호 API를 통과하던 구멍</b> → 인증 필터에서 토큰 종류를 검사해 액세스 토큰만 인증
+            <a class="ev" href="#more-mtm">MTM</a></li>
+          <li><b>관리자 권한 분리</b> → JWT role claim으로 필터에서 DB 조회 없이 인가, 관리자 API 전체를 <code>hasRole("ADMIN")</code>으로 분리. 계정은 이메일이 아닌 (provider, provider_user_id)로 식별
+            <a class="ev" href="#capstone">졸업작품</a></li>
+          <li><b>Google·Facebook OAuth 2.0 로그인</b> → 인가 코드 교환 콜백, DB에 저장한 리프레시 토큰과 대조하는 재발급, OAuth2 리다이렉트 경로 충돌 해결
+            <a class="ev" href="#more-lako">LAKO</a></li>
+        </ul>
+      </article>
+
+      <article class="core__row" data-reveal>
+        <h4 class="core__k"><em>BATCH</em>배치 · 예외 처리</h4>
+        <ul class="core__cases">
+          <li><b>다시 돌리면 중복이 쌓이는 공공데이터 적재</b> → 행마다 SHA-256 해시 + <code>ON CONFLICT DO NOTHING</code>, 1,000건 배치로 재실행해도 결과 동일
+            <a class="ev" href="#more-mommed">엄마약</a></li>
+          <li><b>이미 잘못 저장된 운영 데이터 7개 테이블</b> → 앱 중지 → 백업 → 사전 건수 확인 → 트랜잭션 → 검증 후 COMMIT/ROLLBACK 순서의 정정 스크립트, 재실행 금지 경고
+            <a class="ev" href="#solve-tz">비콘</a></li>
+          <li><b>느린 외부 AI 서버가 서비스를 멈추는 위험</b> → 전용 클라이언트로 격리, 연결·응답 타임아웃 분리, 서버 오류·무응답·파일 오류를 다른 예외로 변환. 로컬 LLM 서비스가 꺼져 있으면 503으로 세션 시작 차단
+            <a class="ev" href="#capstone">졸업작품</a><a class="ev" href="#jinsang">진상 멈춰</a></li>
+          <li><b>SSE 요청의 403이 엉뚱한 401로 바뀌던 문제</b> → 전역 예외 핸들러에서 생산 가능 타입 제한을 풀어 원래 에러코드를 JSON으로 전달
+            <a class="ev" href="#solve-sse">비콘</a></li>
+        </ul>
+      </article>
+
+      <article class="core__row" data-reveal>
+        <h4 class="core__k"><em>TEST</em>테스트 코드</h4>
+        <ul class="core__cases">
+          <li><b>손으로 재현하기 어려운 끊김·재접속·동시 참가</b> → "친구 상태가 내 진행을 바꾸지 않는다" 같은 규칙을 테스트로 고정. 본인 작성 151건 통과(전체 330)
+            <a class="ev" href="#fitmate">FITMATE</a></li>
+          <li><b>테스트 DB와 운영 스키마가 어긋나는 문제</b> → 테스트도 같은 Flyway 마이그레이션으로 실행. 141건 실행 · 137 통과 · 4 건너뜀 · 실패 0
+            <a class="ev" href="#jinsang">진상 멈춰</a></li>
+          <li><b>외부 API·LLM에 의존하는 파이프라인</b> → 외부 클라이언트·검수기·업로더를 주입 가능하게 분리해 실제 호출 없이 단위 테스트 24건
+            <a class="ev" href="#more-history">역사 고증</a></li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 02 WORK — 핵심 프로젝트 -->
+  <section id="work" class="sec" data-section>
+    <div class="sec__head" data-reveal>
+      <em class="sec__no">02</em>
       <h3 class="sec__title">Work</h3>
       <p class="sec__sub">가장 깊이 붙잡았던 4건 — 본인이 직접 구현한 부분만</p>
     </div>
@@ -114,7 +194,7 @@
     <div class="cards">
 
       <!-- FITMATE — 1호선톤 최우수상 -->
-      <article class="card" data-reveal>
+      <article id="fitmate" class="card" data-reveal>
         <figure class="card__shot">
           <img src="assets/work/fitmate.jpg" width="1401" height="473" loading="lazy"
                alt="FITMATE 3D 운동방 — 서로 다른 PC의 참가자 5명이 같은 방에서 AI 코치 시범을 보며 스쿼트를 하는 화면">
@@ -176,7 +256,7 @@
       </article>
 
       <!-- 졸업작품 -->
-      <article class="card" data-reveal>
+      <article id="capstone" class="card" data-reveal>
         <figure class="card__shot">
           <img src="assets/work/capstone.jpg" width="1400" height="875" loading="lazy"
                alt="한국어 발음 교정 학습 서비스 홈 화면 — 나의 학습 현황(학습한 단어·문장·완료율)과 학습 카테고리">
@@ -232,7 +312,7 @@
       </article>
 
       <!-- 비콘 출결 -->
-      <article class="card" data-reveal>
+      <article id="beacon" class="card" data-reveal>
         <figure class="card__shot">
           <img src="assets/work/beacon-config.jpg" width="1200" height="696" loading="lazy"
                alt="비콘 설정 화면 — UUID, RSSI 신호 세기 기준값 -70dBm, 지각 시간 기준 10분, 신호 안정화 시간 3초">
@@ -287,7 +367,7 @@
       </article>
 
       <!-- 진상 멈춰 -->
-      <article class="card" data-reveal>
+      <article id="jinsang" class="card" data-reveal>
         <div class="card__body">
           <header class="card__head">
             <div>
@@ -332,10 +412,10 @@
     </div>
   </section>
 
-  <!-- 02 CONTRIBUTION — 기여 수치 -->
+  <!-- 03 CONTRIBUTION — 기여 수치 -->
   <section id="evidence" class="sec" data-section>
     <div class="sec__head" data-reveal>
-      <em class="sec__no">02</em>
+      <em class="sec__no">03</em>
       <h3 class="sec__title">Contribution</h3>
       <p class="sec__sub">프로젝트별 본인 기여 — 저장소에서 직접 센 값</p>
     </div>
@@ -365,17 +445,17 @@
     </p>
   </section>
 
-  <!-- 03 PROBLEM SOLVING -->
+  <!-- 04 PROBLEM SOLVING -->
   <section id="solve" class="sec" data-section>
     <div class="sec__head" data-reveal>
-      <em class="sec__no">03</em>
+      <em class="sec__no">04</em>
       <h3 class="sec__title">Problem Solving</h3>
       <p class="sec__sub">직접 원인을 찾고 고친 문제 — 커밋 근거 포함</p>
     </div>
 
     <div class="tickets">
 
-      <article class="ticket" data-reveal>
+      <article id="solve-pool" class="ticket" data-reveal>
         <div class="ticket__bar"><span class="dot"></span><span>비콘 출결 · 실사용 환경 · 2026-08-04</span></div>
         <h4>전 API 500 — 커넥션 풀 고갈 원인 규명과 재발 감지</h4>
         <dl>
@@ -390,7 +470,7 @@
         </dl>
       </article>
 
-      <article class="ticket" data-reveal>
+      <article id="solve-tz" class="ticket" data-reveal>
         <div class="ticket__bar"><span class="dot"></span><span>비콘 출결 · 운영 환경</span></div>
         <h4>출석 시각 9시간 오차 — 타임존 3중 고정과 기존 데이터 정정 스크립트</h4>
         <dl>
@@ -405,7 +485,7 @@
         </dl>
       </article>
 
-      <article class="ticket" data-reveal>
+      <article id="solve-refresh" class="ticket" data-reveal>
         <div class="ticket__bar"><span class="dot"></span><span>비콘 출결 · 인증</span></div>
         <h4>액세스 토큰 만료 시 재발급 불가 — 매번 재로그인</h4>
         <dl>
@@ -420,7 +500,7 @@
         </dl>
       </article>
 
-      <article class="ticket" data-reveal>
+      <article id="solve-sse" class="ticket" data-reveal>
         <div class="ticket__bar"><span class="dot"></span><span>비콘 출결 · SSE</span></div>
         <h4>권한 없음(403)이 엉뚱한 401로 바뀌어 내려가던 문제</h4>
         <dl>
@@ -435,7 +515,7 @@
         </dl>
       </article>
 
-      <article class="ticket" data-reveal>
+      <article id="solve-pose" class="ticket" data-reveal>
         <div class="ticket__bar"><span class="dot"></span><span>FITMATE · 실시간 중계</span></div>
         <h4>동작 정보 메시지가 서버에 도달하지 못하는 문제를 구현 전에 발견</h4>
         <dl>
@@ -452,7 +532,7 @@
         </dl>
       </article>
 
-      <article class="ticket" data-reveal>
+      <article id="solve-ncp" class="ticket" data-reveal>
         <div class="ticket__bar"><span class="dot"></span><span>졸업작품 · 파일 저장소</span></div>
         <h4>권한 오류처럼 보였던 Object Storage 업로드 403</h4>
         <dl>
@@ -470,17 +550,17 @@
     </div>
   </section>
 
-  <!-- 04 MORE -->
+  <!-- 05 MORE -->
   <section id="more" class="sec" data-section>
     <div class="sec__head" data-reveal>
-      <em class="sec__no">04</em>
+      <em class="sec__no">05</em>
       <h3 class="sec__title">More Work</h3>
       <p class="sec__sub">그 외 참여 프로젝트 — 본인이 구현한 부분만</p>
     </div>
 
     <div class="minis">
 
-      <article class="mini" data-reveal>
+      <article id="more-mommed" class="mini" data-reveal>
         <div class="mini__top">
           <h4>엄마약 — 복약 안전 서비스</h4>
           <span class="mini__when">2026.05</span>
@@ -495,7 +575,7 @@
         <a class="mini__link" href="https://github.com/Dev-MAMOKEY/Mom-Med-Backend" target="_blank" rel="noopener">Mom-Med-Backend <span aria-hidden="true">↗</span></a>
       </article>
 
-      <article class="mini" data-reveal>
+      <article id="more-mtm" class="mini" data-reveal>
         <div class="mini__top">
           <h4>MTM — AI 개인 피팅 경험</h4>
           <span class="mini__when">2026.08</span>
@@ -510,7 +590,7 @@
         <a class="mini__link" href="https://github.com/Dev-MAMOKEY/MTM-Backend" target="_blank" rel="noopener">MTM-Backend <span aria-hidden="true">↗</span></a>
       </article>
 
-      <article class="mini" data-reveal>
+      <article id="more-history" class="mini" data-reveal>
         <div class="mini__top">
           <h4>역사 고증 검색 — 시각자료 파이프라인</h4>
           <span class="mini__when">2026.06</span>
@@ -524,7 +604,7 @@
         </ul>
       </article>
 
-      <article class="mini" data-reveal>
+      <article id="more-yeoun" class="mini" data-reveal>
         <div class="mini__top">
           <h4>여운 — 디지털 추모 페르소나</h4>
           <span class="mini__when">2026.05</span>
@@ -538,7 +618,7 @@
         <a class="mini__link" href="https://github.com/Dev-MAMOKEY/Yeoun-Backend" target="_blank" rel="noopener">Yeoun-Backend <span aria-hidden="true">↗</span></a>
       </article>
 
-      <article class="mini" data-reveal>
+      <article id="more-lako" class="mini" data-reveal>
         <div class="mini__top">
           <h4>LAKO — MBTI 기반 한국 여행지 추천</h4>
           <span class="mini__when">2025.12 – 2026.01</span>
@@ -554,7 +634,7 @@
         <p class="exclude"><b>팀원 담당(제외)</b> AI 여행지 추천(OpenAI→Gemini) · 로그아웃·탈퇴 최초 구현</p>
       </article>
 
-      <article class="mini" data-reveal>
+      <article id="more-reform" class="mini" data-reveal>
         <div class="mini__top">
           <h4>Re:Form — AI 업사이클 순환 플랫폼</h4>
           <span class="mini__when">2025.10</span>
@@ -579,10 +659,10 @@
     </div>
   </section>
 
-  <!-- 05 STACK -->
+  <!-- 06 STACK -->
   <section id="stack" class="sec" data-section>
     <div class="sec__head" data-reveal>
-      <em class="sec__no">05</em>
+      <em class="sec__no">06</em>
       <h3 class="sec__title">Stack</h3>
       <p class="sec__sub">실제 프로젝트에서 결과물을 낸 기술만 기재</p>
     </div>
@@ -618,10 +698,10 @@
     </div>
   </section>
 
-  <!-- 06 ABOUT -->
+  <!-- 07 ABOUT -->
   <section id="about" class="sec" data-section>
     <div class="sec__head" data-reveal>
-      <em class="sec__no">06</em>
+      <em class="sec__no">07</em>
       <h3 class="sec__title">About</h3>
       <p class="sec__sub">2025.10 – 2026.11 · 프로젝트 10건</p>
     </div>
@@ -702,10 +782,10 @@
     </div>
   </section>
 
-  <!-- 07 CONTACT -->
+  <!-- 08 CONTACT -->
   <section id="contact" class="sec sec--last" data-section>
     <div class="sec__head" data-reveal>
-      <em class="sec__no">07</em>
+      <em class="sec__no">08</em>
       <h3 class="sec__title">Contact</h3>
     </div>
 
