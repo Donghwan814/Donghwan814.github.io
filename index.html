@@ -755,13 +755,17 @@
     </ol>
 
     <div class="grid2" style="margin-top:34px">
-      <div class="panel" data-reveal>
-        <h4>수상 · 선발</h4>
-        <ul class="list">
-          <li><span class="mono">2026.11</span> 2026 멋쟁이사자처럼 1호선톤 <b>최우수상</b> <em>(FITMATE · 실시간 서버)</em></li>
-          <li><span class="mono">2026.08</span> 멋사 중앙 해커톤 SJF 트랙 — <b>82팀 중 상위 15팀</b></li>
-          <li><span class="mono">2026.03</span> 멋쟁이사자처럼 멋사대학 14기 백엔드 트랙 <b>선발</b></li>
-          <li><span class="mono">2025.10</span> SW중심대학 SUMTECH 해커톤 <b>장려상</b> <em>(Re:Form · 팀장)</em></li>
+      <div class="panel panel--wide" data-reveal>
+        <h4>수상 · 선발 — 맡은 역할과 푼 문제</h4>
+        <ul class="list awards">
+          <li><span class="mono">2026.11</span> 2026 멋쟁이사자처럼 1호선톤 <b>최우수상</b> <em>(8개 대학 연합 · 20팀 · FITMATE)</em>
+            <p class="awards__d"><b>역할</b> 백엔드 2인 중 실시간(WebSocket) 담당. <b>푼 문제</b> 동작 정보를 그대로 보내면 9,007B로 Tomcat 한도 8KB를 넘는다는 것을 구현 전에 실측해 형식(927B)과 서버 상한(2KB·초당 15개)을 정했고, 끊김·재접속 규칙을 테스트로 고정했습니다. <a class="ev" href="#fitmate">자세히</a></p></li>
+          <li><span class="mono">2026.08</span> 멋사 중앙 해커톤 SJF 트랙 — <b>82팀 중 상위 15팀</b> <em>(MTM)</em>
+            <p class="awards__d"><b>역할</b> 백엔드 — 회원·JWT, 제품 API, 크롤링 제품 적재기. <b>푼 문제</b> 동시 회원가입의 유니크 위반을 500 대신 409로 응답하게 했고, 리프레시 토큰으로 보호 API를 통과하던 구멍을 인증 필터에서 막았습니다. 적재기는 SKU 단위 트랜잭션으로 중간에 실패해도 다시 실행할 수 있게 만들었습니다. <a class="ev" href="#more-mtm">자세히</a></p></li>
+          <li><span class="mono">2026.03</span> 멋쟁이사자처럼 멋사대학 14기 백엔드 트랙 <b>선발</b>
+            <p class="awards__d">타 학교 개발자들과 6개월간 협업했고, 중앙 해커톤에서 82팀 중 상위 15팀에 들었습니다.</p></li>
+          <li><span class="mono">2025.10</span> SW중심대학 SUMTECH 해커톤 <b>장려상</b> <em>(Re:Form · 팀장)</em>
+            <p class="awards__d"><b>역할</b> 5인 팀 팀장 겸 백엔드. <b>푼 문제</b> 1박 2일 안에 기획·구현·발표를 끝내도록 팀을 이끌고, 이미지 업로드와 사용자 프로필 업로드·회원 상태 처리를 구현했습니다. <a class="ev" href="#more-reform">자세히</a></p></li>
         </ul>
       </div>
       <div class="panel" data-reveal>
@@ -773,7 +777,7 @@
           <li><span class="mono">2026.06</span> TOPCIT 정기평가 Level 3 <em>(평가 결과)</em></li>
         </ul>
       </div>
-      <div class="panel panel--wide" data-reveal>
+      <div class="panel" data-reveal>
         <h4>학력</h4>
         <ul class="list">
           <li><span class="mono">2021.03 — 2027.02</span> 신한대학교 소프트웨어융합학과 <em>(졸업 예정)</em></li>

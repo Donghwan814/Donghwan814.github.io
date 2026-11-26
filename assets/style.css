@@ -588,3 +588,9 @@ code{
 @media (max-width:720px){
   .core__row{ grid-template-columns:1fr; gap:10px; }
 }
+
+/* ── 수상: 역할·푼 문제 ── */
+.awards{ gap:16px; }
+.awards__d{ margin-top:6px; font-size:13.5px; line-height:1.65; color:var(--ink-2); max-width:78ch; }
+.awards__d b{ color:var(--ink); font-weight:600; margin-right:4px; }
+.awards__d .ev{ margin:0 0 0 4px; font-size:11px; }
